@@ -863,6 +863,18 @@ img { max-width: 100%; display: block; }
   background: var(--ink);
 }
 
+.factory-intro .lead {
+  max-width: 860px;
+}
+
+.factory-legal {
+  max-width: 860px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 300;
+}
+
 .report-proof {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -999,6 +1011,7 @@ img { max-width: 100%; display: block; }
 }
 
 .factory-large {
+  position: relative;
   min-height: 500px;
   border: 1px solid var(--line-strong);
   overflow: hidden;
@@ -1008,6 +1021,14 @@ img { max-width: 100%; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.factory-large::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(5,10,15,0.12);
+  pointer-events: none;
 }
 
 .factory-copy {
@@ -1155,6 +1176,14 @@ img { max-width: 100%; display: block; }
   background: var(--line);
 }
 
+.documents .doc-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.documents .doc-card:last-child:nth-child(odd) p {
+  max-width: 560px;
+}
+
 .doc-card {
   background: var(--panel);
   padding: 24px;
@@ -1210,28 +1239,54 @@ img { max-width: 100%; display: block; }
 
 .cta {
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: 52px;
+  grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+  gap: 64px;
+  align-items: stretch;
   background: var(--black);
+}
+
+.rfq-intro h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(48px, 4.4vw, 64px);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.rfq-intro > p {
+  max-width: 500px;
+  margin-top: 18px;
+  color: var(--text);
+  font-size: 15px;
 }
 
 .contact-list {
   display: grid;
-  gap: 12px;
-  margin-top: 28px;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
 }
 
-.contact-line {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  color: var(--text);
-  font-size: 14px;
+.contact-channel {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 22px;
+  min-height: 190px;
+  padding: 24px;
+  align-items: start;
+  border: 1px solid var(--line-strong);
+  background: rgba(255,255,255,0.025);
 }
 
-.contact-line span {
-  width: 34px;
-  height: 34px;
+.contact-channel.whatsapp {
+  border-color: rgba(57,182,122,0.55);
+  background: rgba(57,182,122,0.07);
+}
+
+.contact-channel .channel-icon {
+  width: 60px;
+  height: 60px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1241,24 +1296,87 @@ img { max-width: 100%; display: block; }
   font-size: 11px;
 }
 
+.contact-channel.whatsapp .channel-icon { color: var(--green); }
+.contact-channel .channel-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-channel strong {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contact-channel p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.contact-channel a {
+  display: inline-block;
+  min-height: 44px;
+  margin-top: 14px;
+  padding: 12px 0;
+  color: var(--white);
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-channel.whatsapp a { color: #8fe0b8; }
+
+.contact-detail {
+  display: block;
+  margin-top: 6px;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 500;
+  user-select: text;
+}
+
+.contact-trust {
+  display: grid;
+  gap: 5px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
 .form {
   display: grid;
-  gap: 14px;
+  gap: 20px;
+  align-content: start;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 20px;
 }
 
-.field { display: grid; gap: 6px; }
+.field { display: grid; gap: 9px; align-content: start; }
 .field.full { grid-column: 1 / -1; }
 .field label {
   color: var(--muted);
   font-family: "Space Mono", monospace;
-  font-size: 9px;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -1269,13 +1387,27 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--line-strong);
   background: rgba(255,255,255,0.04);
   color: var(--white);
-  padding: 13px 14px;
+  min-height: 62px;
+  padding: 0 18px;
   font: inherit;
-  font-size: 14px;
+  font-size: 15px;
   outline: none;
 }
 
-.field textarea { min-height: 136px; resize: vertical; }
+.field textarea {
+  min-height: 166px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.field-help {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .field input:focus,
 .field select:focus,
 .field textarea:focus { border-color: var(--gold); }
@@ -1284,9 +1416,10 @@ img { max-width: 100%; display: block; }
   border: 0;
   background: var(--gold);
   color: #111;
-  min-height: 52px;
+  min-height: 68px;
+  margin-top: 2px;
   font-family: "Barlow Condensed", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1410,6 +1543,7 @@ footer {
   .visual-stack,
   .form-row,
   .footer-grid { grid-template-columns: 1fr; }
+  .documents .doc-card:last-child:nth-child(odd) { grid-column: auto; }
   .visual-sec { padding-top: 72px; }
   .visual-panel,
   .visual-stack .visual-panel,
@@ -1450,7 +1584,7 @@ footer {
   <header class="topbar">
     <a class="brand" href="#top" aria-label="Aero Carbon Tech home">
       <strong>Aero<em>Carbon</em>Tech</strong>
-      <span>FRTCARBON export site</span>
+      <span>Carbon fiber OEM manufacturing</span>
     </a>
     <nav class="nav" aria-label="Main navigation">
       <a href="#products">Products</a>
@@ -1464,9 +1598,9 @@ footer {
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <div class="kicker">AeroCarbonTech.com | Backed by FRTCARBON</div>
+        <div class="kicker">AeroCarbonTech.com | Factory-direct carbon fiber manufacturing</div>
         <h1>Carbon Fiber Products for <span>OEM Buyers</span></h1>
-        <p class="hero-text">Aero Carbon Tech is the export-facing site for FRTCARBON manufacturing capability, supplying carbon fiber sheets, tubes, UAV frames, CNC-machined parts and custom composite products for Middle East OEM buyers.</p>
+        <p class="hero-text">Aero Carbon Tech supplies carbon fiber sheets, tubes, UAV frames, CNC-machined parts and custom composite products for Middle East OEM buyers.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#contact">Send RFQ</a>
           <a class="btn secondary" href="#factory">View Factory Capability</a>
@@ -1511,7 +1645,7 @@ footer {
       <div>
         <div class="kicker">Built for B2B purchasing</div>
         <h2 class="section-title">Clear specs, real factory, fast quoting.</h2>
-        <p class="lead">Middle East buyers need more than a catalog page. Aero Carbon Tech presents FRTCARBON manufacturing strength clearly: Huizhou production base, Shenzhen sales support, defined product categories, certification signals and custom manufacturing capability.</p>
+        <p class="lead">Middle East buyers need more than a catalog page. Aero Carbon Tech presents audited manufacturing capability, including a Huizhou production base, Shenzhen sales support, quality documentation and custom manufacturing for OEM projects.</p>
       </div>
       <div class="buyer-points">
         <article class="buyer-point">
@@ -1538,7 +1672,7 @@ footer {
         <div>
           <div class="kicker">Carbon fiber product range</div>
           <h2 class="section-title">Factory product lines</h2>
-          <p class="lead">FRTCARBON supplies carbon fiber sheets, license plate frames, UAV frames, CNC-machined components, carbon fiber tubes and shaped finished products for OEM, distributor and project-based buyers.</p>
+          <p class="lead">Aero Carbon Tech supplies carbon fiber sheets, license plate frames, UAV frames, CNC-machined components, carbon fiber tubes and custom finished products for OEM, distributor and project buyers.</p>
         </div>
         <a class="btn secondary" href="#contact">Request Datasheet</a>
       </div>
@@ -1764,7 +1898,7 @@ footer {
         </article>
 
         <article class="signature-card wide">
-          <img src="factory-workshop-wide.jpg" alt="Wide carbon fiber workshop production line">
+          <img src="public/images/factory-workshop-hero.webp" alt="Carbon fiber factory production line and CNC workshop">
           <div class="signature-copy">
             <b>Factory-backed supply</b>
             <strong>Not just product photos. A production line behind them.</strong>
@@ -1792,7 +1926,7 @@ footer {
           <img src="process-cnc-operation.jpg" alt="Worker operating carbon fiber production equipment">
           <figcaption class="production-copy">
             <b>Equipment operation</b>
-            <strong>Carbon sheet processing in the workshop.</strong>
+            <strong>Carbon sheet machining</strong>
             <p>Clear process footage helps overseas buyers see real machinery, operators and material handling before requesting samples.</p>
           </figcaption>
         </figure>
@@ -1802,14 +1936,14 @@ footer {
             <img src="process-spraying.jpg" alt="Spraying process for carbon fiber product surface finishing">
             <figcaption class="production-copy">
               <b>Surface finishing</b>
-              <strong>Spraying process evidence.</strong>
+              <strong>Protective surface coating</strong>
             </figcaption>
           </figure>
           <figure class="production-card">
             <img src="process-warehouse.jpg" alt="Warehouse storage and packing area for carbon fiber products">
             <figcaption class="production-copy">
-              <b>Packing and warehouse</b>
-              <strong>Inventory flow behind export orders.</strong>
+              <b>Packing &amp; inventory</b>
+              <strong>Ready for OEM shipment</strong>
             </figcaption>
           </figure>
         </div>
@@ -1817,10 +1951,11 @@ footer {
     </section>
 
     <section class="section factory-section" id="factory">
-      <div>
+      <div class="factory-intro">
         <div class="kicker">Factory information</div>
         <h2 class="section-title">Shenzhen sales, Huizhou production base</h2>
-        <p class="lead">A June 2026 V-Trust factory audit verified Huizhou Furuitai Carbon Fiber Products Co., Ltd. as a carbon fiber component manufacturer, with valid business license information, export capability, in-house production processes and documented quality control.</p>
+        <p class="lead">A June 2026 V-Trust audit verified the production facility supporting Aero Carbon Tech OEM and export projects. The audit confirms valid business license information, export capability, in-house production processes and documented quality control.</p>
+        <p class="factory-legal">Audited legal entity: Huizhou Furuitai Carbon Fiber Products Co., Ltd.</p>
       </div>
       <div class="report-proof" aria-label="V-Trust factory audit report proof">
         <div class="report-id">
@@ -1883,7 +2018,7 @@ footer {
       </div>
       <div class="factory-layout">
         <figure class="factory-large">
-          <img src="factory-workshop-wide.jpg" alt="Wide view of carbon fiber workshop production line">
+          <img src="public/images/factory-workshop-detail.webp" alt="Carbon fiber production workshop with CNC equipment">
         </figure>
         <div class="factory-copy">
           <article class="factory-card">
@@ -1998,17 +2133,43 @@ footer {
     </section>
 
     <section class="section cta" id="contact">
-      <div>
+      <div class="rfq-intro">
         <div class="kicker">Request quotation</div>
-        <h2 class="section-title">Send your carbon fiber project details</h2>
-        <p class="lead">For the fastest reply, include product type, material or weave, dimensions, quantity, finish, application and any drawing files.</p>
+        <h2>Get a Factory Quote</h2>
+        <p>Send your carbon fiber requirements for a factory-direct quotation.</p>
         <div class="contact-list">
-          <div class="contact-line"><span>@</span><a href="mailto:frtcarbon@gmail.com">frtcarbon@gmail.com</a></div>
-          <div class="contact-line"><span>W</span><a href="https://wa.me/8619556679532">WhatsApp: +86 195 5667 9532</a></div>
-          <div class="contact-line"><span>CN</span>Shenzhen sales office / Huizhou production base, Guangdong, China</div>
-          <div class="contact-line"><span>URL</span><a href="https://www.aerocarbontech.com/">www.aerocarbontech.com</a></div>
-          <div class="contact-line"><span>FRT</span><a href="https://www.szfrtcarbon.com/">Domestic factory site: szfrtcarbon.com</a></div>
-          <div class="contact-line"><span>QA</span>V-Trust audit summary and certification documents available on request</div>
+          <div class="contact-channel whatsapp">
+            <span class="channel-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M20 11.6a8 8 0 0 1-11.7 7.1L4 20l1.3-4.1A8 8 0 1 1 20 11.6Z"/>
+                <path d="M9 8.2c.3-.2.7-.1.9.2l1 1.5c.2.3.2.6 0 .9l-.6.7c.7 1.3 1.6 2.2 2.9 2.9l.7-.6c.3-.2.6-.2.9 0l1.5 1c.3.2.4.6.2.9-.4.8-1.2 1.2-2.1 1.1-3.9-.6-7-3.7-7.6-7.6-.1-.9.4-1.7 1.2-2.1Z"/>
+              </svg>
+            </span>
+            <div>
+              <strong>WhatsApp</strong>
+              <p>Fastest response from our sales team.</p>
+              <a href="https://wa.me/8619556679532?text=Hello%2C%20I%20would%20like%20to%20request%20a%20quotation%20for%20a%20carbon%20fiber%20project." target="_blank" rel="noopener noreferrer">Chat on WhatsApp →</a>
+              <span class="contact-detail">+86 195 5667 9532</span>
+            </div>
+          </div>
+          <div class="contact-channel">
+            <span class="channel-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <rect x="3" y="5" width="18" height="14" rx="1.5"/>
+                <path d="m4 7 8 6 8-6"/>
+              </svg>
+            </span>
+            <div>
+              <strong>Email</strong>
+              <p>Best for RFQs, drawings and purchasing teams.</p>
+              <a href="mailto:frtcarbon@gmail.com?subject=Carbon%20Fiber%20RFQ">Send an Email →</a>
+              <span class="contact-detail">frtcarbon@gmail.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-trust">
+          <span>Shenzhen sales office · Huizhou production base</span>
+          <span>V-Trust audit documents available on request</span>
         </div>
       </div>
 
@@ -2021,33 +2182,26 @@ footer {
         <div class="form-row">
           <div class="field">
             <label for="company">Company</label>
-            <input id="company" name="Company" type="text" placeholder="Your company" required>
+            <input id="company" name="Company" type="text" placeholder="Your company (optional)" autocomplete="organization">
           </div>
           <div class="field">
-            <label for="name">Contact name</label>
-            <input id="name" name="Name" type="text" placeholder="Your name" required>
+            <label for="email">Email *</label>
+            <input id="email" name="Email" type="email" placeholder="email@company.com" autocomplete="email" required>
           </div>
         </div>
         <div class="form-row">
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="Email" type="email" placeholder="email@company.com" required>
-          </div>
           <div class="field">
             <label for="country">Country / Region</label>
             <input
               id="country"
               name="Country"
               type="text"
-              placeholder="Germany, United States, UAE..."
-              autocomplete="country-name"
-              required>
+              placeholder="Country / region (optional)"
+              autocomplete="country-name">
           </div>
-        </div>
-        <div class="form-row">
           <div class="field">
-            <label for="product">Product type</label>
-            <select id="product" name="Product" required>
+            <label for="product">Product Type *</label>
+            <select id="product" name="Product Type" required>
               <option value="">Select product</option>
               <option>Carbon fiber sheet / plate</option>
               <option>Carbon fiber tube / rod</option>
@@ -2058,20 +2212,22 @@ footer {
               <option>Custom OEM project</option>
             </select>
           </div>
-          <div class="field">
-            <label for="quantity">Estimated quantity</label>
-            <input id="quantity" name="Quantity" type="text" placeholder="Samples / batch quantity">
-          </div>
         </div>
         <div class="field full">
-          <label for="details">Project details</label>
+          <label for="quantity">Quantity *</label>
+          <input id="quantity" name="Quantity" type="text" placeholder="e.g. 100 pieces, 500 kg, or sample order" required>
+        </div>
+        <div class="field full">
+          <label for="details">Project Requirements *</label>
           <textarea
             id="details"
-            name="Project Details"
-            placeholder="Material, weave, thickness, dimensions, tolerance, surface finish, application, destination port and target delivery date. Drawings and technical files can be shared by email after initial contact."
+            name="Project Requirements"
+            placeholder="Describe your project requirements..."
+            aria-describedby="project-requirements-help"
             required></textarea>
+          <p class="field-help" id="project-requirements-help">Include material, dimensions, finish, application, delivery date, or drawing details.</p>
         </div>
-        <button class="submit" type="submit">Request Quotation</button>
+        <button class="submit" type="submit">Request Factory Quote</button>
         <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
       </form>
     </section>
@@ -2082,9 +2238,9 @@ footer {
       <div>
         <a class="brand" href="#top">
           <strong>Aero<em>Carbon</em>Tech</strong>
-          <span>Export site backed by FRTCARBON</span>
+          <span>Carbon fiber OEM manufacturing</span>
         </a>
-        <p style="margin-top:18px">Export-facing site for FRTCARBON carbon fiber sheets, tubes, rods, UAV frames, CNC panels, license plate frames and custom composite components.</p>
+        <p style="margin-top:18px">Aero Carbon Tech supplies carbon fiber sheets, tubes, rods, UAV frames, CNC panels, license plate frames and custom composite components for OEM buyers.</p>
       </div>
       <div>
         <h4>Products</h4>
@@ -2111,14 +2267,13 @@ footer {
         <ul>
           <li><a href="mailto:frtcarbon@gmail.com">frtcarbon@gmail.com</a></li>
           <li><a href="https://www.aerocarbontech.com/">aerocarbontech.com</a></li>
-          <li><a href="https://www.szfrtcarbon.com/">szfrtcarbon.com</a></li>
           <li><a href="#contact">Request quotation</a></li>
           <li><a href="#factory">Factory capability</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Aero Carbon Tech. Export-facing site backed by FRTCARBON.</span>
+      <span>&copy; 2026 Aero Carbon Tech. Factory-direct carbon fiber manufacturing.</span>
       <span>Factory-backed carbon fiber supply for global OEM buyers.</span>
     </div>
   </footer>
@@ -2195,7 +2350,7 @@ if (rfqForm && formStatus) {
       formStatus.textContent = "The RFQ could not be sent. Please email frtcarbon@gmail.com or contact us on WhatsApp.";
     } finally {
       submitButton.disabled = false;
-      submitButton.textContent = "Request Quotation";
+      submitButton.textContent = "Request Factory Quote";
     }
   });
 }
