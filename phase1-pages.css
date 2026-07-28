@@ -64,6 +64,7 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .section-head { display: grid; grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr); gap: 54px; margin-bottom: 42px; }
 .section h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.1; letter-spacing: -0.025em; }
 .section-head p { margin: 0; color: var(--muted); }
+.section-head > div p + p { margin-top: 16px; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .card { min-height: 100%; padding: 28px; border: 1px solid var(--line); background: var(--panel); }
 .card .number { color: var(--gold); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.76rem; }
@@ -81,6 +82,7 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .cta { padding: 72px 0; background: var(--gold); color: #101316; }
 .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 34px; }
 .cta h2 { max-width: 720px; margin: 0; font-size: clamp(2rem, 4vw, 3.7rem); line-height: 1.05; }
+.cta-inner > div p { max-width: 720px; margin: 18px 0 0; }
 .cta .button { border-color: #101316; background: #101316; color: white; flex: 0 0 auto; }
 .site-footer { padding: 34px 0; color: #89939b; font-size: 0.84rem; }
 .footer-inner { display: flex; justify-content: space-between; gap: 24px; }
