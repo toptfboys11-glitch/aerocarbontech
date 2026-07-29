@@ -2313,6 +2313,51 @@ window.addEventListener("scroll", setActiveNav, { passive: true });
 </script>
 
 <script>
+(() => {
+  let alignmentRun = 0;
+
+  const waitForWindowLoad = () => {
+    if (document.readyState === "complete") return Promise.resolve();
+    return new Promise((resolve) => window.addEventListener("load", resolve, { once: true }));
+  };
+
+  async function alignContactHash() {
+    if (window.location.hash !== "#contact") return;
+
+    const target = document.getElementById("contact");
+    if (!target) return;
+
+    const currentRun = ++alignmentRun;
+    await waitForWindowLoad();
+
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+
+    await new Promise(requestAnimationFrame);
+    await new Promise(requestAnimationFrame);
+
+    if (currentRun !== alignmentRun || window.location.hash !== "#contact") return;
+
+    target.scrollIntoView({
+      block: "start",
+      inline: "nearest",
+      behavior: "auto"
+    });
+  }
+
+  if (document.readyState === "complete") {
+    void alignContactHash();
+  } else {
+    window.addEventListener("load", alignContactHash, { once: true });
+  }
+
+  window.addEventListener("pageshow", alignContactHash);
+  window.addEventListener("hashchange", alignContactHash);
+})();
+</script>
+
+<script>
 const rfqForm = document.getElementById("rfq-form");
 const formStatus = document.getElementById("form-status");
 
