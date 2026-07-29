@@ -3,7 +3,7 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, normalize, resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const homepageBaseline = '2cd3949437ec7e0aeb6728ef6ebd17520c134035d34961b55d89f5b31db2f666';
+const homepageBaseline = '99aec8a9bd1afbb74dbc9df9e60987ddf817c9777247a61c9e50f72ba7dadd65';
 const pages = ['index.html', 'resources/index.html', 'applications/index.html', 'capabilities/index.html'];
 const phasePages = pages.slice(1);
 const requiredFiles = [...pages, 'phase1-pages.css', 'robots.txt', 'sitemap.xml', 'public/robots.txt', 'public/sitemap.xml'];
