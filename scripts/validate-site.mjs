@@ -3,7 +3,7 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, normalize, resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const homepageBaseline = '99aec8a9bd1afbb74dbc9df9e60987ddf817c9777247a61c9e50f72ba7dadd65';
+const homepageBaseline = '4a4b59c3dfcee2dfa17b9ec1970b39eb3cc96230c599a9ff54ec36dfb609dd04';
 const pages = ['index.html', 'resources/index.html', 'applications/index.html', 'capabilities/index.html'];
 const phasePages = pages.slice(1);
 const requiredFiles = [...pages, 'phase1-pages.css', 'robots.txt', 'sitemap.xml', 'public/robots.txt', 'public/sitemap.xml'];
@@ -53,7 +53,10 @@ for (const file of pages) {
   if (duplicateIds.length) fail(`${file}: duplicate IDs: ${duplicateIds.join(', ')}.`);
   const combinedMeta = [...titles, ...descriptions, ...canonicals].join(' ');
   if (/localhost|vercel\.app|127\.0\.0\.1/i.test(combinedMeta)) fail(`${file}: preview or local host found in metadata.`);
-  if (file !== 'index.html' && !/<meta\s+name=["']robots["']\s+content=["']noindex,\s*follow["'][^>]*>/i.test(html)) fail(`${file}: Phase 1 page must use noindex, follow.`);
+  if (file !== 'index.html') {
+    if (!/<meta\s+name=["']robots["']\s+content=["']index,\s*follow["'][^>]*>/i.test(html)) fail(`${file}: published SEO page must use index, follow.`);
+    if (/<meta\s+name=["']robots["']\s+content=["'][^"']*\bnoindex\b[^"']*["'][^>]*>/i.test(html)) fail(`${file}: published SEO page must not use noindex.`);
+  }
   if (file !== 'index.html') {
     const expectedCanonical = `https://www.aerocarbontech.com/${dirname(file)}/`;
     if (canonicals[0] !== expectedCanonical) fail(`${file}: canonical must be ${expectedCanonical}.`);
@@ -94,10 +97,20 @@ for (const key of ['title', 'description', 'h1']) {
 }
 
 const sitemap = readFileSync(join(root, 'sitemap.xml'), 'utf8');
-for (const path of ['/resources/', '/applications/', '/capabilities/']) {
-  if (sitemap.includes(path)) fail(`Sitemap must exclude unfinished noindex route ${path}.`);
+const expectedSitemapUrls = [
+  'https://www.aerocarbontech.com/',
+  'https://www.aerocarbontech.com/applications/',
+  'https://www.aerocarbontech.com/capabilities/',
+  'https://www.aerocarbontech.com/resources/'
+];
+const sitemapUrls = matches(sitemap, /<loc>\s*([^<]+?)\s*<\/loc>/gi);
+if (sitemapUrls.length !== expectedSitemapUrls.length) fail(`sitemap.xml must contain exactly ${expectedSitemapUrls.length} URLs; found ${sitemapUrls.length}.`);
+for (const url of expectedSitemapUrls) {
+  if (!sitemapUrls.includes(url)) fail(`sitemap.xml is missing required URL: ${url}`);
 }
-if (!sitemap.includes('https://www.aerocarbontech.com/')) fail('Sitemap does not contain the production homepage URL.');
+for (const url of sitemapUrls) {
+  if (!expectedSitemapUrls.includes(url)) fail(`sitemap.xml contains unexpected URL: ${url}`);
+}
 const robots = readFileSync(join(root, 'robots.txt'), 'utf8');
 if (!/User-agent:\s*\*/i.test(robots) || !/Allow:\s*\//i.test(robots)) fail('robots.txt does not explicitly allow crawling.');
 if (!/Sitemap:\s*https:\/\/www\.aerocarbontech\.com\/sitemap\.xml/i.test(robots)) fail('robots.txt sitemap declaration is missing or incorrect.');
@@ -106,7 +119,7 @@ const publicRobots = readFileSync(join(root, 'public/robots.txt'), 'utf8');
 const publicSitemap = readFileSync(join(root, 'public/sitemap.xml'), 'utf8');
 if (publicRobots !== robots) warn('public/robots.txt differs from production root robots.txt; root file remains authoritative.');
 else pass('public/robots.txt matches the production root robots.txt.');
-if (publicSitemap !== sitemap) warn('public/sitemap.xml differs from production root sitemap.xml; root file remains authoritative.');
+if (publicSitemap !== sitemap) fail('public/sitemap.xml must exactly match the production root sitemap.xml.');
 else pass('public/sitemap.xml matches the production root sitemap.xml.');
 
 for (const marker of ['https://api.web3forms.com/submit', 'name="access_key"', 'name="replyto"', 'name="botcheck"', 'fetch(rfqForm.action']) {
