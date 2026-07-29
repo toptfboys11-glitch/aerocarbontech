@@ -134,6 +134,10 @@ img { max-width: 100%; display: block; }
   scroll-margin-top: 92px;
 }
 
+#contact {
+  scroll-margin-top: 131px;
+}
+
 .kicker {
   display: flex;
   align-items: center;
@@ -2132,10 +2136,10 @@ footer {
       </div>
     </section>
 
-    <section class="section cta" id="contact">
+    <section class="section cta">
       <div class="rfq-intro">
         <div class="kicker">Request quotation</div>
-        <h2>Get a Factory Quote</h2>
+        <h2 id="contact">Get a Factory Quote</h2>
         <p>Send your carbon fiber requirements for a factory-direct quotation.</p>
         <div class="contact-list">
           <div class="contact-channel whatsapp">
@@ -2306,6 +2310,51 @@ const setActiveNav = () => {
 
 setActiveNav();
 window.addEventListener("scroll", setActiveNav, { passive: true });
+</script>
+
+<script>
+(() => {
+  let alignmentRun = 0;
+
+  const waitForWindowLoad = () => {
+    if (document.readyState === "complete") return Promise.resolve();
+    return new Promise((resolve) => window.addEventListener("load", resolve, { once: true }));
+  };
+
+  async function alignContactHash() {
+    if (window.location.hash !== "#contact") return;
+
+    const target = document.getElementById("contact");
+    if (!target) return;
+
+    const currentRun = ++alignmentRun;
+    await waitForWindowLoad();
+
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+
+    await new Promise(requestAnimationFrame);
+    await new Promise(requestAnimationFrame);
+
+    if (currentRun !== alignmentRun || window.location.hash !== "#contact") return;
+
+    target.scrollIntoView({
+      block: "start",
+      inline: "nearest",
+      behavior: "auto"
+    });
+  }
+
+  if (document.readyState === "complete") {
+    void alignContactHash();
+  } else {
+    window.addEventListener("load", alignContactHash, { once: true });
+  }
+
+  window.addEventListener("pageshow", alignContactHash);
+  window.addEventListener("hashchange", alignContactHash);
+})();
 </script>
 
 <script>
