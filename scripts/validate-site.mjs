@@ -3,10 +3,21 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, normalize, resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const homepageBaseline = '4a4b59c3dfcee2dfa17b9ec1970b39eb3cc96230c599a9ff54ec36dfb609dd04';
-const pages = ['index.html', 'resources/index.html', 'applications/index.html', 'capabilities/index.html'];
+const homepageBaseline = '91eb480f2414f1d343f677128f12d49485f26ccb476ca8f2e26a94711a5d924c';
+const pages = [
+  'index.html',
+  'resources/index.html',
+  'resources/faq/index.html',
+  'applications/index.html',
+  'applications/robotics/index.html',
+  'applications/gps-rtk-equipment/index.html',
+  'capabilities/index.html',
+  'products/index.html',
+  'products/carbon-fiber-sheet-plate/index.html',
+  'products/carbon-fiber-rod/index.html'
+];
 const phasePages = pages.slice(1);
-const requiredFiles = [...pages, 'phase1-pages.css', 'robots.txt', 'sitemap.xml', 'public/robots.txt', 'public/sitemap.xml'];
+const requiredFiles = [...pages, 'phase1-pages.css', 'scripts/phase1-rfq.js', 'robots.txt', 'sitemap.xml', 'public/robots.txt', 'public/sitemap.xml'];
 const errors = [];
 const notices = [];
 const warnings = [];
@@ -66,8 +77,8 @@ for (const file of pages) {
   if (file !== 'index.html') {
     for (const match of html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
       const label = text(match[2]);
-      if (/^(?:Request a quote|Send an RFQ|Request factory quote|Discuss (?:your )?requirements)$/i.test(label) && match[1] !== '../#contact') {
-        fail(`${file}: CTA "${label}" must link to ../#contact.`);
+      if (/^(?:Request a quote|Send an RFQ|Request factory quote|Discuss (?:your )?requirements)$/i.test(label) && match[1] !== '#rfq') {
+        fail(`${file}: CTA "${label}" must link to the visible local #rfq section.`);
       }
     }
   }
@@ -83,6 +94,13 @@ for (const file of pages) {
       const id = targetUrl.hash.slice(1);
       if (!new RegExp(`\\bid=["']${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`).test(home)) fail(`${file}: missing homepage anchor ${targetUrl.hash}.`);
     }
+  }
+
+  if (file !== 'index.html') {
+    for (const marker of ['id="rfq"', 'data-phase1-rfq', 'https://api.web3forms.com/submit', 'name="access_key"', 'name="replyto"', 'name="botcheck"', 'scripts/phase1-rfq.js']) {
+      if (!html.includes(marker)) fail(`${file}: visible RFQ marker missing: ${marker}`);
+    }
+    if (/<(?:details|dialog)\b[^>]*>\s*<form\b[^>]*data-phase1-rfq/i.test(html)) fail(`${file}: RFQ form must not be inside a collapsible or dialog element.`);
   }
 }
 
@@ -101,7 +119,13 @@ const expectedSitemapUrls = [
   'https://www.aerocarbontech.com/',
   'https://www.aerocarbontech.com/applications/',
   'https://www.aerocarbontech.com/capabilities/',
-  'https://www.aerocarbontech.com/resources/'
+  'https://www.aerocarbontech.com/resources/',
+  'https://www.aerocarbontech.com/products/',
+  'https://www.aerocarbontech.com/products/carbon-fiber-sheet-plate/',
+  'https://www.aerocarbontech.com/products/carbon-fiber-rod/',
+  'https://www.aerocarbontech.com/applications/robotics/',
+  'https://www.aerocarbontech.com/applications/gps-rtk-equipment/',
+  'https://www.aerocarbontech.com/resources/faq/'
 ];
 const sitemapUrls = matches(sitemap, /<loc>\s*([^<]+?)\s*<\/loc>/gi);
 if (sitemapUrls.length !== expectedSitemapUrls.length) fail(`sitemap.xml must contain exactly ${expectedSitemapUrls.length} URLs; found ${sitemapUrls.length}.`);
