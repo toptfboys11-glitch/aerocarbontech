@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../phase1-pages.css">
 </head>
 <body>
-  <header class="site-header"><div class="wrap nav"><a class="brand" href="../">Aero <span>Carbon Tech</span></a><nav class="nav-links" aria-label="Primary"><a href="../#products">Products</a><a href="../#factory">Factory</a><a class="button" href="../#contact">Request a quote</a></nav></div></header>
+  <header class="site-header"><div class="wrap nav"><a class="brand" href="../">Aero <span>Carbon Tech</span></a><nav class="nav-links" aria-label="Primary"><a href="../products/">Products</a><a href="../applications/">Applications</a><a href="../capabilities/">Capabilities</a><a href="./">Resources</a><a class="button" href="#rfq">Request a quote</a></nav></div></header>
   <main>
     <nav class="wrap breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li aria-current="page">Resources</li></ol></nav>
     <section class="hero">
@@ -19,7 +19,7 @@
         <h1>Carbon Fiber Material &amp; CNC Design Resources</h1>
         <p class="lede">Practical guidance for purchasing, engineering and product-development teams selecting carbon fiber sheets, preparing CNC machining drawings, defining tolerances and inspection needs, and building a complete RFQ.</p>
         <p class="lede">Material construction, machining details and acceptance requirements remain project-specific and should be confirmed against the current application and drawing.</p>
-        <div class="hero-actions"><a class="button" href="../capabilities/">View Capabilities</a><a class="button secondary" href="../applications/">Explore Applications</a><a class="button secondary" href="../#contact">Request a Quote</a></div>
+        <div class="hero-actions"><a class="button" href="../capabilities/">View Capabilities</a><a class="button secondary" href="../applications/">Explore Applications</a><a class="button secondary" href="#rfq">Request a Quote</a></div>
       </div>
     </section>
 
@@ -124,12 +124,13 @@
           <article class="card"><h3>Can inspection photos or records be requested?</h3><p>Inspection photographs and dimensional records can be evaluated according to the drawing, critical features and agreed documentation scope.</p></article>
           <article class="card"><h3>Do you support prototypes and repeat orders?</h3><p>Prototype, small-batch and recurring requirements can be reviewed. Feasibility, process, quantity, revisions and schedule are confirmed for each project rather than guaranteed generally.</p></article>
         </div>
-        <nav class="related" aria-label="Related pages"><span>Continue planning</span><a href="../capabilities/">Review carbon fiber sheet machining capabilities</a><a href="../applications/">Explore carbon fiber applications</a></nav>
+        <nav class="related" aria-label="Resource categories"><span>Resource library</span><a href="faq/">Carbon Fiber Buyer FAQ</a><a href="../products/carbon-fiber-sheet-plate/">Custom Carbon Fiber Sheets</a><a href="../products/carbon-fiber-rod/">Carbon Fiber Rods</a></nav>
+        <nav class="related" aria-label="Related pages"><span>Continue planning</span><a href="../capabilities/">Carbon fiber machining capabilities</a><a href="../applications/">Carbon fiber applications</a></nav>
       </div>
     </section>
 
-    <section class="cta"><div class="wrap cta-inner"><div><h2>Prepare Your Carbon Fiber RFQ</h2><p>Send the current drawing, material and thickness expectations, machining features, quantity, finish and inspection requirements. The available information will be reviewed and open questions identified before quotation.</p></div><a class="button" href="../#contact">Request a Quote</a></div></section>
-  </main>
-  <footer class="site-footer"><div class="wrap footer-inner"><span>© Aero Carbon Tech</span><span><a href="../">Home</a> · <a href="../#contact">Contact</a></span></div></footer>
-</body>
+    <section class="cta"><div class="wrap cta-inner"><div><h2>Prepare Your Carbon Fiber RFQ</h2><p>Send the current drawing, material and thickness expectations, machining features, quantity, finish and inspection requirements. The available information will be reviewed and open questions identified before quotation.</p></div><a class="button" href="#rfq">Request a Quote</a></div></section>
+  <section class="rfq-section" id="rfq" aria-labelledby="rfq-heading"><div class="wrap rfq-layout"><div class="rfq-copy"><p class="eyebrow">Request quotation</p><h2 id="rfq-heading">Send Your Carbon Fiber Project Details</h2><p>Need help selecting a material or preparing a drawing? Describe the component, application, dimensions and open technical questions.</p><div class="rfq-channels"><a href="mailto:frtcarbon@gmail.com?subject=Carbon%20Fiber%20RFQ">Send drawing by email</a><a href="https://wa.me/8619556679532?text=Hello%2C%20I%20would%20like%20to%20request%20a%20quotation%20for%20a%20carbon%20fiber%20project." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></div></div><form class="rfq-form" action="https://api.web3forms.com/submit" method="POST" data-phase1-rfq><input type="hidden" name="access_key" value="7c5f4780-5a28-4cfd-9883-425066220c50"><input type="hidden" name="subject" value="New RFQ from AeroCarbonTech.com"><input type="hidden" name="from_name" value="Aero Carbon Tech Website"><input type="hidden" name="replyto" value=""><input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off"><div class="rfq-field"><label>Company<input name="Company" type="text" placeholder="Your company (optional)" autocomplete="organization"></label></div><div class="rfq-field"><label>Email *<input name="Email" type="email" placeholder="email@company.com" autocomplete="email" required></label></div><div class="rfq-field"><label>Country / Region<input name="Country" type="text" placeholder="Country / region (optional)" autocomplete="country-name"></label></div><div class="rfq-field"><label>Product Type *<select name="Product Type" required><option value="">Select product</option><option>Carbon fiber sheet / plate</option><option>Carbon fiber tube / rod</option><option>CNC carbon fiber part</option><option>Custom OEM project</option></select></label></div><div class="rfq-field full"><label>Quantity *<input name="Quantity" type="text" placeholder="e.g. sample order or expected production quantity" required></label></div><div class="rfq-field full"><label>Project Requirements *<textarea name="Project Requirements" placeholder="Describe material, dimensions, finish, application, target date or drawing details." required></textarea></label><p class="rfq-help">Include critical dimensions, interfaces, inspection expectations and delivery destination where available.</p></div><button class="rfq-submit" type="submit">Request Factory Quote</button><p class="rfq-status" data-rfq-status role="status" aria-live="polite"></p></form></div></section></main>
+  <footer class="site-footer"><div class="wrap footer-inner"><span>© Aero Carbon Tech</span><span><a href="../">Home</a> · <a href="#rfq">Contact</a></span></div></footer>
+<script src="../scripts/phase1-rfq.js" defer></script></body>
 </html>
