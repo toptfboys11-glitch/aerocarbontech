@@ -3,13 +3,14 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, normalize, resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const homepageBaseline = '91eb480f2414f1d343f677128f12d49485f26ccb476ca8f2e26a94711a5d924c';
+const homepageBaseline = '87e12338784ccce475ead76dfa7ecec7e3b1b16f6cd519aa722a999defaa1f81';
 const pages = [
   'index.html',
   'resources/index.html',
   'resources/faq/index.html',
   'applications/index.html',
   'applications/robotics/index.html',
+  'applications/uav-drone/index.html',
   'applications/gps-rtk-equipment/index.html',
   'capabilities/index.html',
   'products/index.html',
@@ -124,6 +125,7 @@ const expectedSitemapUrls = [
   'https://www.aerocarbontech.com/products/carbon-fiber-sheet-plate/',
   'https://www.aerocarbontech.com/products/carbon-fiber-rod/',
   'https://www.aerocarbontech.com/applications/robotics/',
+  'https://www.aerocarbontech.com/applications/uav-drone/',
   'https://www.aerocarbontech.com/applications/gps-rtk-equipment/',
   'https://www.aerocarbontech.com/resources/faq/'
 ];

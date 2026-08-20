@@ -29,7 +29,7 @@
       form.reset();
     } catch (error) {
       status.className = "rfq-status error";
-      status.textContent = "The RFQ could not be sent. Please email frtcarbon@gmail.com or contact us on WhatsApp.";
+      status.textContent = "The RFQ could not be sent. Please email sales@aerocarbontech.com or contact us on WhatsApp.";
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = "Request Factory Quote";

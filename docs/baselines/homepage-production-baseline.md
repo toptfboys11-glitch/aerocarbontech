@@ -1,16 +1,16 @@
 # Homepage Production Baseline
 
-Baseline commit: `15105475156ed3cac707260da1bbe35dc4b3f149`  
-Homepage path: `/index.html`  
-SHA-256 at task start: `2cd3949437ec7e0aeb6728ef6ebd17520c134035d34961b55d89f5b31db2f666`
+Baseline source commit before Phase 2: `f82bba6`
+Homepage path: `/index.html`
+SHA-256 after the approved Phase 2 link, navigation, email and metadata update: `87e12338784ccce475ead76dfa7ecec7e3b1b16f6cd519aa722a999defaa1f81`
 
 ## Protected SEO
 
 - Title: `Aero Carbon Tech | FRT Carbon Fiber Manufacturer for UAV, Automotive & Industrial OEMs`
 - Meta description: `Aero Carbon Tech is the export-facing carbon fiber product site backed by FRTCARBON, supplying carbon fiber sheets, tubes, UAV frames, CNC parts and custom composite components for Middle East OEM buyers.`
 - H1: `Carbon Fiber Products for OEM Buyers`
-- Structured data types: none.
-- Canonical: none.
+- Structured data types: `WebSite`, `Organization`.
+- Canonical: `https://www.aerocarbontech.com/`.
 
 ## Visible Section Order
 
@@ -30,9 +30,9 @@ SHA-256 at task start: `2cd3949437ec7e0aeb6728ef6ebd17520c134035d34961b55d89f5b3
 ## Existing Navigation Labels
 
 - Products
-- Factory
 - Applications
-- Middle East
+- Capabilities
+- Resources
 - Request Quote
 
 ## Existing CTA Labels
@@ -58,4 +58,4 @@ SHA-256 at task start: `2cd3949437ec7e0aeb6728ef6ebd17520c134035d34961b55d89f5b3
 
 ## Regression Rule
 
-At the end of this task, `git diff -- index.html` must be empty and its SHA-256 must remain the value above. Any future change to this file requires an explicit, separately reviewed homepage request.
+Future work must preserve the section order, hero layout, factory imagery, WhatsApp contact and RFQ behavior unless an explicit homepage change is approved. The validation script protects the current SHA-256 above.
