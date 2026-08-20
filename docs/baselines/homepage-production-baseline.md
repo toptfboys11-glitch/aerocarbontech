@@ -2,7 +2,7 @@
 
 Baseline source commit before Phase 2: `f82bba6`
 Homepage path: `/index.html`
-SHA-256 after the approved Phase 2 link, navigation, email and metadata update: `87e12338784ccce475ead76dfa7ecec7e3b1b16f6cd519aa722a999defaa1f81`
+SHA-256 after the approved RFQ recipient-key update: `9b5d4ace4141405ef8c5fcc4283b94eecaae700d13029fa384760d0bd5bb6ed8`
 
 ## Protected SEO
 
