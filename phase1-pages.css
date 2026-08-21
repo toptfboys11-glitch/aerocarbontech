@@ -72,6 +72,7 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
 .card a { display: inline-block; margin-top: 18px; color: var(--gold-soft); font-weight: 700; text-underline-offset: 4px; }
 .card-media { width: 100%; aspect-ratio: 4 / 3; margin-bottom: 22px; object-fit: cover; border: 1px solid var(--line); }
+.product-media-contain { object-fit: contain; padding: 14px; background: #f3f4f5; }
 .media-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .media-card { margin: 0; overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
 .media-card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
@@ -104,13 +105,26 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .sheet-production-grid .media-card figcaption { min-height: 72px; display: flex; align-items: center; padding: 14px 16px; line-height: 1.45; }
 .capabilities-evidence-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 18px; }
 .capabilities-evidence-grid .card { padding: 26px 28px; }
+.capability-process-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.capability-process-card { overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
+.capability-process-card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.capability-process-card > div { padding: 24px; }
+.capability-process-card .number { color: var(--gold); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .76rem; font-weight: 700; }
+.capability-process-card h3 { margin: 12px 0 10px; font-size: 1.12rem; }
+.capability-process-card p { margin: 0; color: var(--muted); font-size: .92rem; }
+.capability-process-card:nth-child(1) img { object-position: center 58%; }
+.capability-process-card:nth-child(2) img { object-position: center 50%; }
+.capability-process-card:nth-child(3) img { object-position: center 58%; }
+.capability-process-card:nth-child(4) img { object-position: center 45%; }
+.capability-process-card:nth-child(5) img { object-position: center 48%; }
+.capability-process-card:nth-child(6) img { object-position: center 52%; }
 .capabilities-page .section-head { align-items: start; }
 .capabilities-page .two-col { align-items: stretch; }
 .capabilities-page .two-col .card { padding: 30px; }
 .capabilities-page .checklist li { padding-block: 13px; }
 .inline-link { color: var(--gold-soft); font-weight: 700; text-underline-offset: 4px; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); gap: 54px; align-items: center; }
-.hero-image { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--line); }
+.hero-image { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--line); }
 .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .tag-list span { padding: 7px 10px; border: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
 .data-list { margin: 0; }
@@ -172,6 +186,9 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
   .uav-proof-grid .media-card img, .sheet-production-grid .media-card img { aspect-ratio: 4 / 3; }
   .uav-proof-grid .media-card figcaption, .sheet-production-grid .media-card figcaption { min-height: 0; }
   .capabilities-evidence-grid, .product-process-list, .products-catalog-grid { grid-template-columns: 1fr; }
+  .capability-process-grid { grid-template-columns: 1fr; }
+  .capability-process-card { display: grid; grid-template-columns: minmax(120px, .9fr) minmax(0, 1.1fr); }
+  .capability-process-card img { height: 100%; min-height: 220px; aspect-ratio: auto; }
   .product-process-list .process-step { min-height: 0; }
   .section-head { gap: 18px; }
   .cta-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
@@ -188,4 +205,6 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
   .rfq-form { grid-template-columns: 1fr; padding: 22px 18px; }
   .rfq-field.full, .rfq-submit, .rfq-status { grid-column: auto; }
   .related { align-items: flex-start; flex-direction: column; }
+  .capability-process-card { grid-template-columns: 1fr; }
+  .capability-process-card img { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
 }
