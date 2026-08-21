@@ -96,9 +96,12 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .capabilities-proof-grid .media-card { display: flex; min-width: 0; flex-direction: column; }
 .capabilities-proof-grid .media-card img { height: auto; aspect-ratio: 5 / 4; flex: 0 0 auto; object-fit: cover; }
 .capabilities-proof-grid .media-card figcaption { min-height: 72px; display: flex; align-items: center; padding: 14px 16px; line-height: 1.45; }
-.capabilities-proof-grid .proof-workshop img { object-position: center 52%; }
-.capabilities-proof-grid .proof-operator img { object-position: center 43%; }
-.capabilities-proof-grid .proof-warehouse img { object-position: center 36%; }
+.uav-proof-grid .media-card,
+.sheet-production-grid .media-card { display: flex; min-width: 0; flex-direction: column; }
+.uav-proof-grid .media-card img,
+.sheet-production-grid .media-card img { height: auto; aspect-ratio: 5 / 4; flex: 0 0 auto; object-fit: cover; }
+.uav-proof-grid .media-card figcaption,
+.sheet-production-grid .media-card figcaption { min-height: 72px; display: flex; align-items: center; padding: 14px 16px; line-height: 1.45; }
 .capabilities-evidence-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 18px; }
 .capabilities-evidence-grid .card { padding: 26px 28px; }
 .capabilities-page .section-head { align-items: start; }
@@ -166,6 +169,8 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
   .capabilities-proof { padding-block: 62px; }
   .capabilities-proof-grid .media-card img { aspect-ratio: 4 / 3; }
   .capabilities-proof-grid .media-card figcaption { min-height: 0; }
+  .uav-proof-grid .media-card img, .sheet-production-grid .media-card img { aspect-ratio: 4 / 3; }
+  .uav-proof-grid .media-card figcaption, .sheet-production-grid .media-card figcaption { min-height: 0; }
   .capabilities-evidence-grid, .product-process-list, .products-catalog-grid { grid-template-columns: 1fr; }
   .product-process-list .process-step { min-height: 0; }
   .section-head { gap: 18px; }
