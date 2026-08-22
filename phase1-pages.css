@@ -73,10 +73,24 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .card a { display: inline-block; margin-top: 18px; color: var(--gold-soft); font-weight: 700; text-underline-offset: 4px; }
 .card-media { width: 100%; aspect-ratio: 4 / 3; margin-bottom: 22px; object-fit: cover; border: 1px solid var(--line); }
 .product-media-contain { object-fit: contain; padding: 14px; background: #f3f4f5; }
+.featured-uav-card { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr); min-height: 430px; margin-bottom: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
+.featured-uav-card img { width: 100%; height: 100%; min-height: 430px; object-fit: contain; padding: 24px; background: #f3f4f5; }
+.featured-uav-copy { display: flex; flex-direction: column; justify-content: center; padding: 42px; }
+.featured-uav-copy h3 { margin: 16px 0 12px; font-size: clamp(1.45rem, 2.4vw, 2.2rem); }
+.featured-uav-copy p { margin: 0; color: var(--muted); }
+.featured-uav-copy a { display: inline-block; margin-top: 22px; color: var(--gold-soft); font-weight: 700; text-underline-offset: 4px; }
+.featured-product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.additional-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.product-proof-grid .media-card { display: flex; min-width: 0; flex-direction: column; }
+.product-proof-grid .media-card figcaption { flex: 1; }
+.uav-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .media-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .media-card { margin: 0; overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
 .media-card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
 .media-card.contain img { object-fit: contain; padding: 18px; background: #f3f4f5; }
+.featured-product-grid .card-media { height: 250px; aspect-ratio: auto; }
+.additional-product-grid .card-media { height: 300px; aspect-ratio: auto; }
+.product-proof-grid .media-card img { height: 280px; aspect-ratio: auto; object-fit: contain; padding: 16px; background: #f3f4f5; }
 .media-card figcaption { padding: 16px 18px; color: var(--muted); font-size: .88rem; }
 .process-list { counter-reset: process; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); }
 .process-step { counter-increment: process; padding: 26px; background: var(--panel); }
@@ -181,6 +195,10 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
   .hero { padding: 42px 0 60px; }
   .section { padding: 62px 0; }
   .section-head, .grid, .two-col, .hero-grid, .rfq-layout, .media-grid, .process-list { grid-template-columns: 1fr; }
+  .featured-uav-card { grid-template-columns: 1fr; min-height: 0; }
+  .featured-uav-card img { min-height: 0; aspect-ratio: 4 / 3; }
+  .featured-uav-copy { padding: 28px; }
+  .featured-product-grid .card-media, .additional-product-grid .card-media, .product-proof-grid .media-card img { height: 240px; }
   .capabilities-proof { padding-block: 62px; }
   .capabilities-proof-grid .media-card img { aspect-ratio: 4 / 3; }
   .capabilities-proof-grid .media-card figcaption { min-height: 0; }
