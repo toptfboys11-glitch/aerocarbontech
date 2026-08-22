@@ -115,9 +115,9 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .capability-process-card p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.6; }
 .capability-process-card:nth-child(1) img { object-position: center 58%; }
 .capability-process-card:nth-child(2) img { object-position: center 50%; }
-.capability-process-card:nth-child(3) img { object-position: center 58%; }
-.capability-process-card:nth-child(4) img { object-position: center 45%; }
-.capability-process-card:nth-child(5) img { object-position: center 48%; }
+.capability-process-card:nth-child(3) img { object-position: center 45%; }
+.capability-process-card:nth-child(4) img { object-position: center 48%; }
+.capability-process-card:nth-child(5) img { object-position: center 62%; }
 .capability-process-card:nth-child(6) img { object-position: center 52%; }
 .capabilities-page .section-head { align-items: start; }
 .capabilities-page .two-col { align-items: stretch; }
