@@ -91,6 +91,10 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .b2b-evidence-card img { height: 420px; aspect-ratio: auto; }
 .featured-product-grid .card-media { height: 250px; aspect-ratio: auto; }
 .additional-product-grid .card-media { height: 300px; aspect-ratio: auto; }
+.additional-product-grid .oem-card-media { background: #f3f4f5; }
+.additional-product-grid .oem-license-media { object-fit: contain; padding: 0; object-position: center; }
+.additional-product-grid .oem-tubes-media { object-fit: cover; padding: 0; object-position: 50% 42%; }
+.additional-product-grid .oem-shaped-media { object-fit: contain; padding: 8px; object-position: center; }
 .product-proof-grid .media-card img { height: 280px; aspect-ratio: auto; object-fit: contain; padding: 16px; background: #f3f4f5; }
 .media-card figcaption { padding: 16px 18px; color: var(--muted); font-size: .88rem; }
 .process-list { counter-reset: process; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); }
