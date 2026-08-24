@@ -88,13 +88,13 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .media-card { margin: 0; overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
 .media-card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
 .media-card.contain img { object-fit: contain; padding: 18px; background: #f3f4f5; }
-.b2b-evidence-card img { height: 420px; aspect-ratio: auto; }
-.featured-product-grid .card-media { height: 250px; aspect-ratio: auto; }
+.media-card.contain.b2b-evidence-card img { height: 420px; aspect-ratio: auto; padding: 0; background: #fff; object-fit: contain; }
+.featured-product-grid .card-media { height: 250px; aspect-ratio: auto; padding: 0; background: #fff; object-fit: contain; }
 .additional-product-grid .card-media { height: 300px; aspect-ratio: auto; }
-.additional-product-grid .oem-card-media { background: #f3f4f5; }
+.additional-product-grid .oem-card-media { background: #fff; }
 .additional-product-grid .oem-license-media { object-fit: contain; padding: 0; object-position: center; }
 .additional-product-grid .oem-tubes-media { object-fit: cover; padding: 0; object-position: 50% 42%; }
-.additional-product-grid .oem-shaped-media { object-fit: contain; padding: 8px; object-position: center; }
+.additional-product-grid .oem-shaped-media { object-fit: contain; padding: 0; object-position: center; }
 .pickleball-product { display: grid; grid-template-columns: minmax(0, 42fr) minmax(0, 58fr); grid-template-areas: "media intro" "media features" "media cta"; gap: 0 1px; max-width: 1240px; min-height: 580px; margin-inline: auto; background: var(--line); border: 1px solid var(--line); }
 .pickleball-product-media { grid-area: media; align-self: stretch; width: 100%; height: auto; margin: 0; background: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; border-right: 1px solid var(--line); }
 .pickleball-product-media img { display: block; width: 100%; height: 590px; max-height: 100%; object-fit: contain; object-position: center; }
@@ -262,7 +262,7 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
   .capability-process-card img { height: clamp(240px, 29vw, 300px); aspect-ratio: 4 / 3; }
 }
 @media (max-width: 767px) {
-  .b2b-evidence-card img { height: 280px; }
+  .media-card.contain.b2b-evidence-card img { height: 280px; }
   .capability-process .section-head { margin-bottom: 24px; }
   .capability-process-grid { gap: 18px; }
   .capability-process-card { display: flex; }
