@@ -96,8 +96,8 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .additional-product-grid .oem-tubes-media { object-fit: cover; padding: 0; object-position: 50% 42%; }
 .additional-product-grid .oem-shaped-media { object-fit: contain; padding: 8px; object-position: center; }
 .pickleball-product { display: grid; grid-template-columns: minmax(0, 42fr) minmax(0, 58fr); grid-template-areas: "media intro" "media features" "media cta"; gap: 0 1px; max-width: 1240px; min-height: 580px; margin-inline: auto; background: var(--line); border: 1px solid var(--line); }
-.pickleball-product-media { grid-area: media; align-self: center; width: min(100%, 510px); height: 540px; margin-inline: auto; background: #f3f4f5; display: flex; align-items: center; justify-content: center; padding: 34px; border-right: 1px solid var(--line); }
-.pickleball-product-media img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.pickleball-product-media { grid-area: media; align-self: stretch; width: 100%; height: auto; margin: 0; background: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; border-right: 1px solid var(--line); }
+.pickleball-product-media img { display: block; width: 100%; height: 590px; max-height: 100%; object-fit: contain; object-position: center; }
 .pickleball-product-intro { grid-area: intro; background: var(--panel); padding: 38px 42px 22px; }
 .pickleball-product-intro h2 { margin: 10px 0 8px; font-size: clamp(2rem, 3vw, 3.1rem); line-height: 1.02; }
 .pickleball-product-intro h3 { margin: 0 0 14px; color: var(--gold-soft); font-size: 1rem; letter-spacing: .04em; text-transform: uppercase; }
@@ -230,7 +230,7 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
   .featured-product-grid .card-media, .additional-product-grid .card-media, .product-proof-grid .media-card img { height: 240px; }
   .pickleball-product { grid-template-columns: 1fr; grid-template-areas: "intro" "media" "features" "cta"; min-height: 0; }
   .pickleball-product-intro { padding: 28px 26px 24px; }
-  .pickleball-product-media { width: 100%; height: min(112vw, 420px); padding: 24px; border-top: 1px solid var(--line); border-right: 0; border-bottom: 1px solid var(--line); }
+  .pickleball-product-media { width: 100%; height: min(112vw, 420px); padding: 18px; border-top: 1px solid var(--line); border-right: 0; border-bottom: 1px solid var(--line); }
   .pickleball-product-media img { height: 100%; }
   .pickleball-feature-grid { grid-template-columns: 1fr; margin: 24px 26px 0; }
   .pickleball-feature { min-height: 0; }
