@@ -36,3 +36,12 @@
     }
   });
 })();
+
+(() => {
+  const currentScript = document.currentScript;
+  if (!currentScript) return;
+  const siteContactScript = document.createElement("script");
+  siteContactScript.src = new URL("site-contact.js", currentScript.src).href;
+  siteContactScript.defer = true;
+  document.head.appendChild(siteContactScript);
+})();
