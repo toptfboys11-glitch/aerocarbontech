@@ -1,10 +1,45 @@
 (() => {
+  if (window.__aeroSiteContactInitialized) return;
+  window.__aeroSiteContactInitialized = true;
+
+  const googleAdsId = "AW-18415203234";
+  const googleAdsConversions = {
+    generate_lead: "AW-18415203234/N2JXCPSux-kcEKLnhs1E",
+    email_click: "AW-18415203234/yErKCPeux-kcEKLnhs1E",
+    whatsapp_click: "AW-18415203234/coPFCPqux-kcEKLnhs1E"
+  };
   const whatsappUrl = "https://wa.me/8619556679532?text=Hi%20AeroCarbon%20Tech%2C%20I%E2%80%99m%20looking%20for%20custom%20carbon%20fiber%20parts.%20I%20can%20share%20the%20application%2C%20quantity%20and%20drawings%20for%20quotation.";
 
   window.dataLayer = window.dataLayer || [];
 
+  const installGoogleAds = () => {
+    if (!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${googleAdsId}"]`)) {
+      const googleTag = document.createElement("script");
+      googleTag.async = true;
+      googleTag.src = `https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`;
+      document.head.appendChild(googleTag);
+    }
+
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+
+    window.gtag = window.gtag || gtag;
+    window.gtag("js", new Date());
+    window.gtag("config", googleAdsId);
+  };
+
+  installGoogleAds();
+
+  const reportGoogleAdsConversion = (event) => {
+    const sendTo = googleAdsConversions[event];
+    if (!sendTo || typeof window.gtag !== "function") return;
+    window.gtag("event", "conversion", { send_to: sendTo });
+  };
+
   const track = (event, details = {}) => {
     window.dataLayer.push({ event, ...details });
+    reportGoogleAdsConversion(event);
   };
 
   window.AeroCarbonTracking = { track };
