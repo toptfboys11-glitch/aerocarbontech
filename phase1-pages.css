@@ -107,6 +107,35 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .pickleball-feature h3 { margin: 0 0 9px; font-size: 1rem; }
 .pickleball-feature p { margin: 0; font-size: .92rem; }
 .pickleball-cta { grid-area: cta; display: flex; align-items: flex-start; padding: 24px 42px 38px; background: var(--panel); }
+.pickleball-subheading { margin: 20px 0 0; color: var(--gold-soft); font-size: clamp(1rem, 1.8vw, 1.25rem); font-weight: 750; letter-spacing: .02em; }
+.pickleball-landing-hero .hero-grid { grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr); }
+.pickleball-landing-hero h1 { font-size: clamp(2.8rem, 5vw, 4.9rem); }
+.pickleball-hero-stage { display: flex; min-height: 540px; align-items: center; justify-content: center; padding: 28px; border: 1px solid var(--line); background: #fff; }
+.pickleball-hero-stage img { display: block; width: 100%; height: 480px; object-fit: contain; }
+.pickleball-option-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pickleball-option-grid .card { min-height: 230px; }
+.pickleball-construction { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); gap: 18px; align-items: stretch; }
+.construction-stack { display: grid; gap: 1px; padding: 1px; background: var(--line); }
+.construction-stack > div { display: grid; grid-template-columns: 48px minmax(170px, .7fr) minmax(0, 1.3fr); gap: 18px; align-items: center; min-height: 76px; padding: 15px 20px; background: var(--panel); }
+.construction-stack span { color: var(--gold); font: 700 .76rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+.construction-stack strong { font-size: 1rem; }
+.construction-stack small { color: var(--muted); font-size: .86rem; }
+.construction-note { display: flex; justify-content: center; flex-direction: column; padding: 38px; }
+.construction-note h3 { margin: 0 0 18px; font-size: clamp(1.45rem, 2.3vw, 2.2rem); line-height: 1.15; }
+.pickleball-production-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.pickleball-production-grid .media-card { display: flex; min-width: 0; flex-direction: column; }
+.pickleball-production-grid .media-card img { height: 350px; aspect-ratio: auto; object-fit: cover; }
+.pickleball-production-grid .media-card:nth-child(2) img { object-position: center 54%; }
+.pickleball-production-grid .media-card:nth-child(3) img { object-position: center; }
+.pickleball-production-grid figcaption { display: flex; gap: 6px; flex-direction: column; }
+.pickleball-production-grid figcaption strong { color: var(--text); font-size: 1rem; }
+.pickleball-partner-note { margin: 24px 0 0; padding: 18px 20px; border-left: 2px solid var(--gold); background: var(--panel-soft); color: var(--muted); font-size: .88rem; }
+.pickleball-audit-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); }
+.pickleball-audit-grid .card { display: flex; min-height: 150px; align-items: flex-start; justify-content: center; flex-direction: column; border: 0; }
+.pickleball-audit-grid strong { color: var(--gold-soft); font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1; }
+.pickleball-audit-grid span { margin-top: 14px; color: var(--muted); font-size: .84rem; letter-spacing: .06em; text-transform: uppercase; }
+.pickleball-process { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pickleball-process .process-step { min-height: 200px; }
 .product-proof-grid .media-card img { height: 280px; aspect-ratio: auto; object-fit: contain; padding: 16px; background: #f3f4f5; }
 .media-card figcaption { padding: 16px 18px; color: var(--muted); font-size: .88rem; }
 .process-list { counter-reset: process; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); }
@@ -235,6 +264,15 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
   .pickleball-feature-grid { grid-template-columns: 1fr; margin: 24px 26px 0; }
   .pickleball-feature { min-height: 0; }
   .pickleball-cta { padding: 24px 26px 30px; }
+  .pickleball-landing-hero .hero-grid, .pickleball-option-grid, .pickleball-construction, .pickleball-production-grid, .pickleball-audit-grid, .pickleball-process { grid-template-columns: 1fr; }
+  .pickleball-hero-stage { min-height: 0; height: min(112vw, 500px); padding: 20px; }
+  .pickleball-hero-stage img { height: 100%; }
+  .pickleball-option-grid .card, .pickleball-process .process-step { min-height: 0; }
+  .construction-stack > div { grid-template-columns: 38px 1fr; gap: 10px 14px; }
+  .construction-stack small { grid-column: 2; }
+  .construction-note { padding: 28px; }
+  .pickleball-production-grid .media-card img { height: 280px; }
+  .pickleball-audit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .capabilities-proof { padding-block: 62px; }
   .capabilities-proof-grid .media-card img { aspect-ratio: 4 / 3; }
   .capabilities-proof-grid .media-card figcaption { min-height: 0; }
