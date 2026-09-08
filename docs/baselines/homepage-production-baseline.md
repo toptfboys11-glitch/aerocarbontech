@@ -2,12 +2,12 @@
 
 Baseline source commit before Phase 2: `f82bba6`
 Homepage path: `/index.html`
-SHA-256 after the approved RFQ recipient-key update: `9b5d4ace4141405ef8c5fcc4283b94eecaae700d13029fa384760d0bd5bb6ed8`
+SHA-256 after the approved additive homepage SEO optimization and brand correction: `3f75a55c7035a3e160e3dbbeab508e88c3bdea872d587be87581bf51d18612e7`
 
 ## Protected SEO
 
-- Title: `Aero Carbon Tech | FRT Carbon Fiber Manufacturer for UAV, Automotive & Industrial OEMs`
-- Meta description: `Aero Carbon Tech is the export-facing carbon fiber product site backed by FRTCARBON, supplying carbon fiber sheets, tubes, UAV frames, CNC parts and custom composite components for Middle East OEM buyers.`
+- Title: `AeroCarbon Tech | Carbon Fiber Manufacturer for UAV, Automotive & Industrial OEMs`
+- Meta description: `AeroCarbon Tech supplies carbon fiber sheets, tubes, UAV frames, CNC parts and custom composite components for global and Middle East OEM buyers.`
 - H1: `Carbon Fiber Products for OEM Buyers`
 - Structured data types: `WebSite`, `Organization`.
 - Canonical: `https://www.aerocarbontech.com/`.

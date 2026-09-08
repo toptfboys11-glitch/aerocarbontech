@@ -3,7 +3,7 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, normalize, resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const homepageBaseline = '6a33f0dad9f9404b383ceec666454656143655997f16558af0630e095e4f25db';
+const homepageBaseline = '3f75a55c7035a3e160e3dbbeab508e88c3bdea872d587be87581bf51d18612e7';
 const pages = [
   'index.html',
   'resources/index.html',
