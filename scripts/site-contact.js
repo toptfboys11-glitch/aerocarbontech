@@ -127,7 +127,7 @@
   button.href = whatsappUrl;
   button.target = "_blank";
   button.rel = "noopener noreferrer";
-  button.setAttribute("aria-label", "Chat with Aero Carbon Tech on WhatsApp");
+  button.setAttribute("aria-label", "Chat with AeroCarbon Tech on WhatsApp");
   button.dataset.trackingSource = "floating_button";
   button.innerHTML = `
     <svg class="floating-whatsapp__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">

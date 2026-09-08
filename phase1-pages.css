@@ -134,7 +134,7 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
 .pickleball-audit-grid .card { display: flex; min-height: 150px; align-items: flex-start; justify-content: center; flex-direction: column; border: 0; }
 .pickleball-audit-grid strong { color: var(--gold-soft); font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1; }
 .pickleball-audit-grid span { margin-top: 14px; color: var(--muted); font-size: .84rem; letter-spacing: .06em; text-transform: uppercase; }
-.pickleball-process { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.process-list.pickleball-process { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .pickleball-process .process-step { min-height: 200px; }
 .product-proof-grid .media-card img { height: 280px; aspect-ratio: auto; object-fit: contain; padding: 16px; background: #f3f4f5; }
 .media-card figcaption { padding: 16px 18px; color: var(--muted); font-size: .88rem; }
@@ -264,7 +264,7 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
   .pickleball-feature-grid { grid-template-columns: 1fr; margin: 24px 26px 0; }
   .pickleball-feature { min-height: 0; }
   .pickleball-cta { padding: 24px 26px 30px; }
-  .pickleball-landing-hero .hero-grid, .pickleball-option-grid, .pickleball-construction, .pickleball-production-grid, .pickleball-audit-grid, .pickleball-process { grid-template-columns: 1fr; }
+  .pickleball-landing-hero .hero-grid, .pickleball-option-grid, .pickleball-construction, .pickleball-production-grid, .pickleball-audit-grid, .process-list.pickleball-process { grid-template-columns: 1fr; }
   .pickleball-hero-stage { min-height: 0; height: min(112vw, 500px); padding: 20px; }
   .pickleball-hero-stage img { height: 100%; }
   .pickleball-option-grid .card, .pickleball-process .process-step { min-height: 0; }
@@ -287,6 +287,7 @@ h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 6vw, 5.4rem); line-he
   .cta-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
 }
 @media (min-width: 801px) and (max-width: 1100px) {
+  .process-list.pickleball-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .additional-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .additional-product-grid .card:last-child { grid-column: 1 / -1; }
   .capabilities-proof-grid, .capabilities-evidence-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
