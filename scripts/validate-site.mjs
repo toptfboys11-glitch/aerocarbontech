@@ -3,7 +3,8 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, normalize, resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const homepageBaseline = 'e27ee0e2a75fa6a53db4565c9028d1a28d1afc7a3bda73d9df2226bd15a135b9';
+// Authorized phase-one homepage revision; previous baseline retained in commit 6334df9.
+const homepageBaseline = 'd64286938411dcb33a6bb51c91b191bc093c1dc3326bf1a3b0b6f69ccb96df06';
 const pages = [
   'index.html',
   'resources/index.html',
@@ -58,7 +59,7 @@ for (const file of pages) {
   if (descriptions.length !== 1) fail(`${file}: expected one meta description, found ${descriptions.length}.`);
   if (h1s.length !== 1) fail(`${file}: expected one H1, found ${h1s.length}.`);
   if (viewports.length !== 1 || !/width=device-width/.test(viewports[0] ?? '')) fail(`${file}: expected one device-width viewport declaration.`);
-  if (file !== 'index.html' && canonicals.length !== 1) fail(`${file}: expected one canonical, found ${canonicals.length}.`);
+  if (canonicals.length !== 1) fail(`${file}: expected one canonical, found ${canonicals.length}.`);
   if (!/^<!doctype html>/i.test(html.trim())) fail(`${file}: missing HTML5 doctype.`);
   if (!/<html\s+lang=["']en["']/i.test(html)) fail(`${file}: missing English lang attribute.`);
   const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
@@ -72,6 +73,17 @@ for (const file of pages) {
   if (file !== 'index.html') {
     const expectedCanonical = `https://www.aerocarbontech.com/${dirname(file)}/`;
     if (canonicals[0] !== expectedCanonical) fail(`${file}: canonical must be ${expectedCanonical}.`);
+  }
+  if (file === 'index.html' || file === 'products/carbon-fiber-sheet-plate/index.html') {
+    const expected = file === 'index.html' ? 'https://www.aerocarbontech.com/' : 'https://www.aerocarbontech.com/products/carbon-fiber-sheet-plate/';
+    if (canonicals[0] !== expected) fail(`${file}: incorrect canonical.`);
+    for (const value of matches(html, /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)) {
+      try { JSON.parse(value); } catch { fail(`${file}: invalid JSON-LD.`); }
+    }
+    for (const image of html.matchAll(/<img\b[^>]*>/gi)) {
+      if (!/alt="[^"]+"/.test(image[0])) fail(`${file}: missing descriptive image alt.`);
+    }
+    if (/Use this section to rank|avoiding duplicate pages and competing search intent/.test(html)) fail(`${file}: editorial SEO instructions exposed.`);
   }
   metadata.set(file, { title: titles[0], description: descriptions[0], h1: h1s[0] });
 
